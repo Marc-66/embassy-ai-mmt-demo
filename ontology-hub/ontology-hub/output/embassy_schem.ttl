@@ -1,0 +1,6 @@
+@prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+@prefix kairos: <http://example.org/kairos/> .
+
+kairos:EmbassySchema a skos:ConceptScheme ;
+    skos:prefLabel 'Embassy Schema' ;
+    skos:definition 'Generated schema for the Kairos ontology hub' .
