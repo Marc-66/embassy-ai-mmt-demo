@@ -1,0 +1,10 @@
+# Kairos Ontology Toolkit
+# NOTE: The toolkit is installed separately in CI/CD workflows
+# For local development, run: pip install git+https://github.com/Cnext-eu/kairos-ontology-toolkit.git@main
+# Or use: .\update-toolkit.ps1 (Windows) or ./update-toolkit.sh (Linux/Mac)
+
+# Development dependencies
+pytest>=7.4.0
+pytest-cov>=4.1.0
+black>=23.0.0
+ruff>=0.1.0

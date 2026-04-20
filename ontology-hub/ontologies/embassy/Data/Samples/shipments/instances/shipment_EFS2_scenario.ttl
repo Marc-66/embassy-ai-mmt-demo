@@ -1,0 +1,13 @@
+@prefix dcsa: <http://dcsa.org/ontology/shipping#> .
+@prefix ilsdos: <http://embassy.org/ontology/ilsdos#> .
+@prefix shipment: <http://embassy.org/instances/shipment#> .
+
+shipment:EFS2_scenario_Dossier a dcsa:Shipment ;
+    dcsa:carrierBookingReference 'UNKNOWN' ;
+    dcsa:totalGrossWeight 13838.0 ;
+    ilsdos:status 'Verified' ;
+    dcsa:consistsOf shipment:HBL_EGLV143574067940 .
+
+shipment:HBL_EGLV143574067940 a dcsa:HouseBillOfLading ;
+    dcsa:transportDocumentReference 'EGLV143574067940' ;
+    dcsa:grossWeight 13838.0 .

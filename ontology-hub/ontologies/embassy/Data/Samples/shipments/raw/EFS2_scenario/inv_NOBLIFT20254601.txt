@@ -1,0 +1,44 @@
+Document Metadata
+Invoice Number: NOBLIFT20254601
+S/C Number (Contract): 6277266
+Order Number: 6277266
+Date: November 27, 2025
+Entity Information
+Shipper: Noblelift Intelligent Equipment Co., Ltd.
+Address: No.528 Changzhou Road, Taihu Sub-district, Changxing, Zhejiang 313100, China
+Contact: FAX: 0086-572-6210777
+Consignee: TMHE Logistics AB (Antwerp)
+Address: Hallevadsgatan 5-8, 595 81 Mjolby, Sweden
+Shipping Address: Brielen 1, 2830 Willebroek, Belgium
+VAT No.: BE0819937337
+Logistics & Shipment Details
+Port of Loading: Ningbo, China
+Destination: Antwerp, Belgium
+Incoterms: DAP Antwerp, Belgium
+Container Number: EMCU9948025
+Container Type: 1 x 40" GP
+Total Packages: 34 Pallets (PLTS)
+Total Quantity: 102 Pieces (PCS)
+Goods Specification
+Description: Electric Pallet Truck (EDGE PRO)
+Model: LHE130B
+Technical Details: 1.3ton capacity, 540mm x 1150mm fork, 80mm lowered height, single PU roller, 24V20AH battery, EU Plug
+Weights & Measurements:
+Gross Weight: 13,838.00 KGS
+Net Weight: 12,240.00 KGS
+Measurement: 52.02 CBM
+Financial Breakdown
+Unit Price: RMB 5,859.77 per unit
+Goods Subtotal: RMB 597,696.54
+Local Freight & Customs (China): RMB 11,800.00
+Sea Freight: USD 2,800.00 (converted to RMB 20,160.00)
+Belgium Customs Charges: EUR 665.00 (converted to RMB 5,254.00)
+DG Trucking Fee: EUR 660.00 (converted to RMB 5,214.00)
+Total Invoice Value: RMB 640,124.54
+Total in Words: Six hundred and forty thousand one hundred and twenty-four and fifty-four cents only
+Banking Information
+Beneficiary: Noblelift Intelligent Equipment Co., Ltd.
+Bank Name: Bank of China, Chang Xing Branch
+Bank Address: No.51 Jinling South Road, Chang xing, Huzhou city, Zhejiang, China
+Swift Code: BKCHCNBJ92G
+Account Number: 376658341907

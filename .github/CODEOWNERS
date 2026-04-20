@@ -1,0 +1,19 @@
+# CODEOWNERS — enforces mandatory review before merge.
+# See: https://docs.github.com/en/repositories/managing-your-repositorys-settings-and-features/customizing-your-repository/about-code-owners
+
+# Default: all changes require a maintainer review
+*                                   @Cnext-eu/maintainers
+
+# Ontology definitions and SHACL shapes require the ontology-leads team
+/ontology-hub/ontologies/           @Cnext-eu/ontology-leads @Cnext-eu/maintainers
+/ontology-hub/shapes/               @Cnext-eu/ontology-leads @Cnext-eu/maintainers
+/ontology-hub/mappings/             @Cnext-eu/ontology-leads @Cnext-eu/maintainers
+
+# Dependency version bumps require a maintainer to approve
+/versions.lock                      @Cnext-eu/maintainers
+/pyproject.toml                     @Cnext-eu/maintainers
+/requirements.txt                   @Cnext-eu/maintainers
+/.gitmodules                        @Cnext-eu/maintainers
+
+# CI/CD pipeline changes require maintainer approval
+/.github/                           @Cnext-eu/maintainers

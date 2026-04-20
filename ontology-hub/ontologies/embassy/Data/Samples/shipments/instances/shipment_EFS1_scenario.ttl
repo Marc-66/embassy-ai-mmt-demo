@@ -1,0 +1,19 @@
+@prefix dcsa: <http://dcsa.org/ontology/shipping#> .
+@prefix ilsdos: <http://embassy.org/ontology/ilsdos#> .
+@prefix shipment: <http://embassy.org/instances/shipment#> .
+
+shipment:EFS1_scenario_Dossier a dcsa:Shipment ;
+    dcsa:carrierBookingReference 'UNKNOWN' ;
+    dcsa:totalGrossWeight 6763.9 ;
+    ilsdos:status 'Anomaly_Detected' ;
+    ilsdos:anomalyNote 'Weight Mismatch! Sum HBLs (6763.9) != Total (4763.9)' ;
+    dcsa:consistsOf shipment:HBL_hbl_SRG_ANT_25110135_txt ;
+    dcsa:consistsOf shipment:HBL_hbl_SRG_ANT_25110136_txt .
+
+shipment:HBL_hbl_SRG_ANT_25110135_txt a dcsa:HouseBillOfLading ;
+    dcsa:transportDocumentReference 'hbl_SRG-ANT-25110135.txt' ;
+    dcsa:grossWeight 4187.9 .
+
+shipment:HBL_hbl_SRG_ANT_25110136_txt a dcsa:HouseBillOfLading ;
+    dcsa:transportDocumentReference 'hbl_SRG-ANT-25110136.txt' ;
+    dcsa:grossWeight 2576.0 .

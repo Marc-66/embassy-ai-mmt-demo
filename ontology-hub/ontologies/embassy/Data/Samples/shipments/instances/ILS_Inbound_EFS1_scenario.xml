@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Dossier xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+    <ProcessArea>
+        <action>INSERT_INBOUND</action>
+    </ProcessArea>
+    <DataArea>
+        <GeneralData>
+            <dossierId>EFS1_scenario</dossierId>
+            <operationalDate>2026-04-20</operationalDate>
+            <BillOfLading>
+                <number>Number</number>
+            </BillOfLading>
+            <GoodsValue>
+                <currency>EUR</currency>
+            </GoodsValue>
+            <extraRemarks>AI Audit: Anomaly_Detected. Weight Mismatch! MMT Sum (6763.9) != Master (4763.9)</extraRemarks>
+        </GeneralData>
+        <Goods>
+            <Good>
+                <lineId>1</lineId>
+                <packageType>PC</packageType>
+                <grossWeight>4187.9</grossWeight>
+                <netWeight>3769.11</netWeight>
+                <interfaceGoodId>hbl_SRG-ANT-25110135.txt</interfaceGoodId>
+            </Good>
+            <Good>
+                <lineId>2</lineId>
+                <packageType>PC</packageType>
+                <grossWeight>2576.0</grossWeight>
+                <netWeight>2318.4</netWeight>
+                <interfaceGoodId>hbl_SRG-ANT-25110136.txt</interfaceGoodId>
+            </Good>
+        </Goods>
+        <Customs>
+            <additionalScenario>30</additionalScenario>
+        </Customs>
+    </DataArea>
+</Dossier>

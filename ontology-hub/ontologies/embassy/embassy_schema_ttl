@@ -1,0 +1,90 @@
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix mmt: <http://unece.org/data/mmt#> .
+@prefix ils: <http://streamsoftware.com/ils#> .
+@prefix embassy: <http://example.org/embassy/> .
+
+# ===== ONTOLOGY METADATA =====
+<http://example.org/embassy/schema> a owl:Ontology ;
+    rdfs:label "Embassy MMT & ILS Unified Ontology" ;
+    rdfs:comment "Ontology mapped to UN/CEFACT MMT Reference Data Model and StreamSoftware ILS specifications." ;
+    owl:versionInfo "2.0.0 (MMT Aligned)" .
+
+# ===== CLASS DEFINITIONS =====
+
+## Main Class: Master Consignment (MMT Standard)
+mmt:MasterConsignment a owl:Class ;
+    rdfs:label "Master Consignment" ;
+    rdfs:comment "The top-level transport dossier (MMT equivalent of a Shipment/Dossier)" .
+
+## Sub Class: Consignment Item (HBL/Part of Shipment)
+mmt:ConsignmentItem a owl:Class ;
+    rdfs:label "Consignment Item" ;
+    rdfs:comment "A detailed item within a consignment, representing a House BL or specific cargo unit." .
+
+# ===== DATATYPE PROPERTIES (MMT & ILS) =====
+
+## Identifiers (MMT Mapping)
+mmt:carrierAssignmentReferenceID a owl:DatatypeProperty ;
+    rdfs:label "Carrier Ref (MBL)" ;
+    rdfs:comment "The Master Bill of Lading or Booking reference (UN/CEFACT term)" ;
+    rdfs:domain mmt:MasterConsignment ;
+    rdfs:range xsd:string .
+
+mmt:identificationID a owl:DatatypeProperty ;
+    rdfs:label "Item ID (HBL)" ;
+    rdfs:comment "The House Bill of Lading reference or Item ID" ;
+    rdfs:domain mmt:ConsignmentItem ;
+    rdfs:range xsd:string .
+
+## Weights (MMT & ILS)
+mmt:totalGrossWeightMeasure a owl:DatatypeProperty ;
+    rdfs:label "Total Gross Weight (MMT)" ;
+    rdfs:domain mmt:MasterConsignment ;
+    rdfs:range xsd:decimal .
+
+mmt:grossWeightMeasure a owl:DatatypeProperty ;
+    rdfs:label "Item Gross Weight" ;
+    rdfs:domain mmt:ConsignmentItem ;
+    rdfs:range xsd:decimal .
+
+ils:nettWeight a owl:DatatypeProperty ;
+    rdfs:label "ILS Nett Weight" ;
+    rdfs:comment "Required field for StreamSoftware ILS (ILS.pdf p.3)" ;
+    rdfs:domain mmt:ConsignmentItem ;
+    rdfs:range xsd:decimal .
+
+ils:tareWeight a owl:DatatypeProperty ;
+    rdfs:label "ILS Tare Weight" ;
+    rdfs:comment "Weight of packing (ILS.pdf p.3)" ;
+    rdfs:domain mmt:ConsignmentItem ;
+    rdfs:range xsd:decimal .
+
+## Status and Audit (StreamSoftware specific)
+ils:customsStatus a owl:DatatypeProperty ;
+    rdfs:label "ILS Customs Status" ;
+    rdfs:comment "Status code from ILS list, e.g., 30=Change Customs Status (p.35)" ;
+    rdfs:domain mmt:MasterConsignment ;
+    rdfs:range xsd:string .
+
+ils:auditStatus a owl:DatatypeProperty ;
+    rdfs:label "Embassy Audit Status" ;
+    rdfs:comment "Internal AI check status: Verified or Anomaly_Detected" ;
+    rdfs:domain mmt:MasterConsignment ;
+    rdfs:range xsd:string .
+
+ils:anomalyNote a owl:DatatypeProperty ;
+    rdfs:label "AI Audit Note" ;
+    rdfs:comment "Reasoning provided by the AI Agent for detected anomalies" ;
+    rdfs:domain mmt:MasterConsignment ;
+    rdfs:range xsd:string .
+
+# ===== OBJECT PROPERTIES (Relationships) =====
+
+mmt:includesConsignmentItem a owl:ObjectProperty ;
+    rdfs:label "includes" ;
+    rdfs:comment "Relates the Master Consignment to its individual items (HBLs)" ;
+    rdfs:domain mmt:MasterConsignment ;
+    rdfs:range mmt:ConsignmentItem .

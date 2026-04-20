@@ -1,0 +1,16 @@
+@prefix mmt: <http://unece.org/data/mmt#> .
+@prefix ils: <http://streamsoftware.com/ils#> .
+@prefix res: <http://embassy.org/resource/> .
+
+res:Consignment_EFS3_scenario a mmt:MasterConsignment ;
+    mmt:carrierAssignmentReferenceID 'Number' ;
+    mmt:totalGrossWeightMeasure 82400.0 ;
+    ils:customsStatus '30' ;
+    ils:auditStatus 'Verified' ;
+    mmt:includesConsignmentItem res:Item_Information .
+
+res:Item_Information a mmt:ConsignmentItem ;
+    mmt:identificationID 'Information' ;
+    mmt:grossWeightMeasure 82400.0 ;
+    ils:nettWeight 74160.0 ;
+    ils:tareWeight 8240.0 .

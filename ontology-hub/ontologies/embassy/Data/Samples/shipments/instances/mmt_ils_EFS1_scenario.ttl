@@ -1,0 +1,24 @@
+@prefix mmt: <http://unece.org/data/mmt#> .
+@prefix ils: <http://streamsoftware.com/ils#> .
+@prefix res: <http://embassy.org/resource/> .
+
+res:Consignment_EFS1_scenario a mmt:MasterConsignment ;
+    mmt:carrierAssignmentReferenceID 'Number' ;
+    mmt:totalGrossWeightMeasure 4763.9 ;
+    ils:customsStatus '30' ;
+    ils:auditStatus 'Anomaly_Detected' ;
+    ils:anomalyNote 'Weight Mismatch! MMT Sum (6763.9) != Master (4763.9)' ;
+    mmt:includesConsignmentItem res:Item_hbl_SRG_ANT_25110135_txt ;
+    mmt:includesConsignmentItem res:Item_hbl_SRG_ANT_25110136_txt .
+
+res:Item_hbl_SRG_ANT_25110135_txt a mmt:ConsignmentItem ;
+    mmt:identificationID 'hbl_SRG-ANT-25110135.txt' ;
+    mmt:grossWeightMeasure 4187.9 ;
+    ils:nettWeight 3769.11 ;
+    ils:tareWeight 418.79 .
+
+res:Item_hbl_SRG_ANT_25110136_txt a mmt:ConsignmentItem ;
+    mmt:identificationID 'hbl_SRG-ANT-25110136.txt' ;
+    mmt:grossWeightMeasure 2576.0 ;
+    ils:nettWeight 2318.4 ;
+    ils:tareWeight 257.6 .

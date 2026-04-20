@@ -1,0 +1,51 @@
+Shipping Document Header & Reference Information
+Carrier/Issuer: BXCEL International
+Bill of Lading Number: KULE52991600
+Booking Number: BXLPKG250551
+Shipper Address: Lot 1-7, Lion Industrial Park, Persiaran Jubli Perak, P.O. Box 7216, 40706 Shah Alam Selangor, Malaysia
+Consignee: Same as Consignee (Refers to Sumitomo Warehouse Europe GMBH)
+Notify Party 1: Nippon Electric Glass Europe GMBH (Am Seestern 8, 40547 Dusseldorf, Germany)
+Notify Party 2: Sumitomo Warehouse Europe GMBH (Fotografielaan 37/39, B-2610 Antwerpen-Wilrijk, Belgium)
+Delivery Agent: Embassy Freight Services Europe N.V. (Bredabaan 842-844, 2170 Merksem, Belgium)
+II. Voyage & Cargo Details
+Vessel / Voyage No: HMM DHAKA / 0041N
+Port of Loading: Port Klang, Malaysia
+Port of Discharge: Antwerp, Belgium
+Date of Loading: 25/11/2025
+Description of Goods: E-Glass Fiber Chopped Strand
+Total Quantity: 80 Pallets contained in 4 x 20'GP Containers
+Total Gross Weight: 82,400.00 kg
+Total Measurement: 119.6800 M3
+HS Code: 7019.11.0000
+PO Number: D25M 0140
+III. Container Specification Table
+Container No.
+Seal No.
+Size
+Packages
+Weight (KGS)
+Measurement (CBM)
+TRHU1859200
+24H0015985
+20'GP
+20 Pallets
+20,600.00
+29.92
+HDMU2740712
+24H0015983
+20'GP
+20 Pallets
+20,600.00
+29.92
+HDMU2787617
+24H0015981
+20'GP
+20 Pallets
+20,600.00
+29.92
+FCIU5377867
+24H0015984
+20'GP
+20 Pallets
+20,600.00
+29.92

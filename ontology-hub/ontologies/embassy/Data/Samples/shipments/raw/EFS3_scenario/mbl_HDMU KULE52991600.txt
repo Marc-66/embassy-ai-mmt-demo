@@ -1,0 +1,58 @@
+. Document Metadata
+Carrier: HMM (Hyundai Merchant Marine)
+Document Type: Bill of Lading (Draft / Copy Non-Negotiable)
+B/L Number: HDMU KULE52991600
+Print Date: 18-Nov-2025 17:01
+II. Involved Parties
+Forwarding Agent: BXCEL INTERNATIONAL SDN. BHD.
+Address: NO. 1-2, JALAN ECO ARDENCE D U12/36D, ECO ARDENCE, SEKSYEN U12, 40170 SHAH ALAM, SELANGOR, MALAYSIA
+Notify Party / Destination Agent: EMBASSY FREIGHT SERVICES EUROPE N.V.
+Address: BREDABAAN 842-844, 2170 MERKSEM, BELGIUM
+Contact: WIM JOCHEMS (Phone: +32 (0)3 6416 04 47; Email: WIM@EMBASSY-FREIGHT.BE)
+VAT Number: BE0427 495 529
+III. Voyage and Routing
+Vessel / Voyage: HMM DHAKA V.0041N (Note: MSC GRACE V.0100W also listed)
+Port of Loading: PORT KLANG, MALAYSIA
+Port of Discharge: ANTWERP, BELGIUM
+Point and Country of Origin: PORT KLANG, MALAYSIA
+IV. Cargo Description and Particulars
+General Description: E-GLASS FIBER CHOPPED STRAND
+Total Packages: 4 X 20'GP CONTAINERS (containing 80 PALLETS)
+Total Quantity (Words): FOUR(4) CONTAINERS ONLY
+Marks and Numbers: SUMITOMO WAREHOUSE EUROPE GMBH, ECS03T-120H/R, PLT NO: 1-80, MADE IN MALAYSIA
+Shipper Reference: MF25DD11012A-D
+Purchase Order: P.O. NO. D25M 0140
+HS Code: 7019.11.0000
+Total Gross Weight: 82,400.000 KGS
+Total Measurement: 119.6800 CBM
+Stowage Status: "SHIPPER'S LOAD, COUNT, SEALED & WEIGHT S.T.C."
+V. Container & Seal Inventory
+Container Number
+Seal Number
+Type/Size
+Status
+FCIU5377867
+24H0015984
+DC 20
+CY / CY
+HDMU2740712
+24H0015983
+DC 20
+CY / CY
+HDMU2787617
+24H0015981
+DC 20
+CY / CY
+TRHU1859200
+24H0015985
+DC 20
+CY / CY
+(Sources for Table:
+)
+VI. Financial and Execution Details
+Freight Terms: FREIGHT PREPAID = CY / CY
+Freight Status: FREIGHT ALL AS ARRANGED
+Rate Applicability Date: 2025-11-24
+Place of Issue: KUALA LUMPUR, MALAYSIA
+Date of Issue: NOV. 24, 2025
+On Board Date (OBD): NOVEMBER TWENTY-FOURTH, 2025

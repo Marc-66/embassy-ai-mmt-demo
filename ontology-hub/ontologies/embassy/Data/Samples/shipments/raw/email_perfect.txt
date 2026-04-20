@@ -1,0 +1,14 @@
+Subject: Shipment documents - Maersk Antwerp - V.101
+
+Dear colleagues,
+
+Please find attached the shipment documents for our latest export.
+The Master BL is MAEU123456789 and the House BL is EFV-SGN-2024-001. 
+All goods are loaded in container MSCU9988776. 
+Total weight is 12500 KG.
+
+The vessel Maersk Antwerp (V.101) is scheduled to depart from Ho Chi Minh City (VNSGN) and will arrive in Antwerp (BEANT).
+
+Best regards,
+Nguyen Van Ba
+Ho Chi Minh City Office

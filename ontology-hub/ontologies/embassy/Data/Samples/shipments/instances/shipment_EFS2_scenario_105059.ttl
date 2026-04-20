@@ -1,0 +1,8 @@
+@prefix ilsdos: <http://embassy.org/ontology/ilsdos#> .
+@prefix shipment: <http://embassy.org/instances/shipment#> .
+
+shipment:EFS2_scenario a ilsdos:Shipment ;
+    ilsdos:bookingNr 'Niet gevonden' ;
+    ilsdos:totalGrossWeight 13838.0 ;
+    ilsdos:status 'Verified' ;
+    ilsdos:hasHouseBOL [ ilsdos:ref 'EGLV143574067940' ; ilsdos:weight 13838.0 ] .

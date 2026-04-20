@@ -1,0 +1,10 @@
+@prefix ilsdos: <http://embassy.org/ontology/ilsdos#> .
+@prefix shipment: <http://embassy.org/instances/shipment#> .
+
+shipment:EFS1_scenario a ilsdos:Shipment ;
+    ilsdos:bookingNr 'Niet gevonden' ;
+    ilsdos:totalGrossWeight 6763.9 ;
+    ilsdos:status 'Anomaly_Detected' ;
+    ilsdos:anomalyNote 'Mismatch: HBL Sum (6763.9) vs Target (4763.9)' ;
+    ilsdos:hasHouseBOL [ ilsdos:ref 'hbl_SRG-ANT-25110135.txt' ; ilsdos:weight 4187.9 ] ;
+    ilsdos:hasHouseBOL [ ilsdos:ref 'hbl_SRG-ANT-25110136.txt' ; ilsdos:weight 2576.0 ] .

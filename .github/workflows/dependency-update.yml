@@ -1,0 +1,141 @@
+name: Dependency Update
+
+# Runs on a weekly schedule or can be triggered manually.
+# Discovers the latest toolkit release and latest reference-models commit,
+# validates with the new versions, then opens a PR — never merges automatically.
+
+on:
+  schedule:
+    - cron: '0 8 * * 1'   # Every Monday 08:00 UTC
+  workflow_dispatch:
+    inputs:
+      update_toolkit:
+        description: 'Update kairos-ontology-toolkit'
+        type: boolean
+        default: true
+      update_reference_models:
+        description: 'Update reference-models submodule'
+        type: boolean
+        default: true
+
+permissions:
+  contents: write
+  pull-requests: write
+  packages: read
+
+jobs:
+  dependency-update:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+        with:
+          submodules: recursive
+          token: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+
+      # -----------------------------------------------------------------------
+      # Capture current pinned versions for the PR body diff table
+      # -----------------------------------------------------------------------
+      - name: Read current pinned versions
+        id: current
+        run: |
+          source versions.lock
+          echo "toolkit_version=$TOOLKIT_VERSION"       >> $GITHUB_OUTPUT
+          echo "reference_models_ref=$REFERENCE_MODELS_REF" >> $GITHUB_OUTPUT
+
+      # -----------------------------------------------------------------------
+      # Toolkit update
+      # -----------------------------------------------------------------------
+      - name: Fetch latest toolkit release
+        if: ${{ github.event_name == 'schedule' || inputs.update_toolkit }}
+        id: toolkit
+        run: |
+          LATEST=$(curl -sf \
+            -H "Authorization: Bearer ${{ secrets.SMARTCODING_ONTOLOGY_TOOLKIT }}" \
+            https://api.github.com/repos/Cnext-eu/kairos-ontology-toolkit/releases/latest \
+            | grep '"tag_name"' | sed 's/.*"v\([^"]*\)".*/\1/')
+          if [ -z "$LATEST" ]; then
+            echo "ERROR: could not determine latest toolkit version" >&2
+            exit 1
+          fi
+          echo "latest=$LATEST" >> $GITHUB_OUTPUT
+          sed -i "s/^TOOLKIT_VERSION=.*/TOOLKIT_VERSION=$LATEST/" versions.lock
+
+      # -----------------------------------------------------------------------
+      # Reference models update
+      # -----------------------------------------------------------------------
+      - name: Update reference-models submodule
+        if: ${{ github.event_name == 'schedule' || inputs.update_reference_models }}
+        id: refmodels
+        run: |
+          git submodule update --init --recursive --remote
+          NEW_REF=$(git -C ontology-reference-models rev-parse HEAD)
+          echo "new_ref=$NEW_REF" >> $GITHUB_OUTPUT
+          sed -i "s/^REFERENCE_MODELS_REF=.*/REFERENCE_MODELS_REF=$NEW_REF/" versions.lock
+
+      # -----------------------------------------------------------------------
+      # Install the updated toolkit and validate — PR only opens if this passes
+      # -----------------------------------------------------------------------
+      - name: Install updated toolkit
+        run: |
+          source versions.lock
+          pip install --upgrade pip
+          pip install "git+https://github.com/Cnext-eu/kairos-ontology-toolkit.git@v${TOOLKIT_VERSION}"
+          pip install -r requirements.txt
+        env:
+          GIT_ASKPASS: echo
+          GIT_USERNAME: x-access-token
+          GIT_PASSWORD: ${{ secrets.SMARTCODING_ONTOLOGY_TOOLKIT }}
+
+      - name: Validate with updated dependencies
+        run: |
+          kairos-ontology validate \
+            --ontologies ontology-hub/ontologies \
+            --shapes ontology-hub/shapes \
+            --catalog ontology-reference-models/catalog-v001.xml
+
+      # -----------------------------------------------------------------------
+      # Only open a PR when something actually changed
+      # -----------------------------------------------------------------------
+      - name: Check for changes
+        id: changes
+        run: |
+          if git diff --quiet; then
+            echo "has_changes=false" >> $GITHUB_OUTPUT
+            echo "No version changes detected — already up to date."
+          else
+            echo "has_changes=true" >> $GITHUB_OUTPUT
+          fi
+
+      - name: Open pull request
+        if: steps.changes.outputs.has_changes == 'true'
+        uses: peter-evans/create-pull-request@v6
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+          commit-message: "chore: update pinned dependency versions"
+          branch: "deps/auto-update-${{ github.run_number }}"
+          title: "chore: bump pinned dependency versions"
+          body: |
+            ## Automated Dependency Update
+
+            This PR was opened by the scheduled `dependency-update` workflow.
+            **Review the diff and validate locally before merging.**
+
+            | Dependency | Before | After |
+            |---|---|---|
+            | `kairos-ontology-toolkit` | `${{ steps.current.outputs.toolkit_version }}` | `${{ steps.toolkit.outputs.latest }}` |
+            | `reference-models` ref | `${{ steps.current.outputs.reference_models_ref }}` | `${{ steps.refmodels.outputs.new_ref }}` |
+
+            Validation passed with the updated versions ✅
+
+            > Merging this PR will update `versions.lock`. All future CI runs will use the new pinned versions.
+          labels: |
+            dependencies
+            automated
+          draft: false

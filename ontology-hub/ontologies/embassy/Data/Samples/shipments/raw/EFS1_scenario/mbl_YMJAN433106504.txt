@@ -1,0 +1,35 @@
+Document Type: Non-Negotiable Sea Waybill
+Bill of Lading (B/L) Number: YMJAN433106504
+Booking Number: N433106504
+Carrier: Yang Ming (Singapore) Pte. Ltd.
+Agent for Carrier: PT. Supra Shipindo
+Parties Involved
+Shipper:
+PT. Kemasindo Cepat Semarang
+Address: Puri Anjasmoro C1/22 Kav.1, Semarang, Indonesia
+Telephone: 024-7618632
+Tax ID: 080.250.400.1-503.000
+Consignee & Notify Party:
+Embassy Freight Services Europe N.V
+Address: Bredabaan 842-844, B-2170 Merksem, Antwerp
+Telephone: +32(0)3 646 04 47
+Fax: +32(0)3 646 07 03
+Logistics & Routing
+Pre-carriage Vessel: MTT Sandakan V.67W
+Ocean Vessel: MSC Grace V.GL545W
+Port of Loading: Semarang, Indonesia
+Port of Discharge & Place of Delivery: Antwerp, Belgium
+Shipped on Board Date: 17/11/2025
+Freight Status: Freight Prepaid / Freight as arranged
+Cargo & Container Details
+Container Number: MAGU5547295
+Seal Number: YMAQ213639
+Container Type: 1 x 40'HQ (FCL/FCL)
+Total Packages: 142 Packages
+Gross Weight: 4,763.900 KGS
+Net Weight: 3,525.90 KGS
+Measurement: 65.190 CBM
+Description of Goods (S.T.C - Said to Contain):
+97 packages containing 112 pieces of wooden furniture (PO Number: PO 25.285 SH)
+45 boxes containing 45 pieces of garden furniture (PO Number: 25.286-SH)
+Note: Shipper's load, count, and sealed

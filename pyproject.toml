@@ -1,0 +1,18 @@
+[tool.poetry]
+name = "customer-ontology-hub"
+version = "1.2.1"
+description = "Customer-specific ontologies for Kairos platform"
+authors = ["Your Team <team@example.com>"]
+
+[tool.poetry.dependencies]
+python = "^3.12"
+kairos-ontology-toolkit = "1.0.0"   # exact pin — bump via make update-toolkit
+
+[tool.poetry.group.dev.dependencies]
+pytest = "^7.4.0"
+black = "^23.0.0"
+ruff = "^0.1.0"
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"

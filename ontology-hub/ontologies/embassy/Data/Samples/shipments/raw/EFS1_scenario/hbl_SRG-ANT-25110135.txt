@@ -1,0 +1,23 @@
+Cognossement  (SRG/ANT/25110135)
+Carrier (Vervoerder): KECE LINE
+B/L Number: SRG/ANT/25110135
+S/O No. / Ref. No: SEFSRG25110135
+Shipper (Afzender): PT MANDIRI BANGUN NUSANTARA, Jalan Raya Tahunan-Batealit, Desa Bawu, RT. 26 RW. 05, Kecamatan Batealit, Kabupaten Jepara, Provinsi Jawa Tengah, Indonesië
+Consignee (Ontvanger): HOUSE AND GARDEN, Zuiderdijk 25, 9230 Wetteren, België
+Forwarding Agent (Expediteur): EMBASSY FREIGHT SERVICES EUROPE N.V, Bredabaan 842-844, B-2170 Merksem, Antwerpen
+Place of Receipt & Loading: SEMARANG, INDONESIA
+Ocean Vessel & Voy No: MTT SANDAKAN 67W
+Port of Discharge: ANTWERP, BELGIUM
+Marks & Nos: MAGU5547295 / PART OF HB/L # SRG/ANT/25110136
+Description of Goods (Goederenomschrijving):
+1X40'HC PART OF SHIPPERS LOAD, COUNT, STOW AND SEAL
+45 BOXES = 45 PCS OF GARDEN FURNITURE
+PO#: 25.286-SH
+Total Number of Containers: SAY : ONE (1) CONTAINER ONLY
+Weights & Measurements:
+Gross Weight (GWT): 4.187,90 KGS
+Net Weight (NWT): 1.193,90 KGS
+Measurement (MSR): 43,1480 M3
+Service Type: FCL - FCL CY TO CY
+Freight: FREIGHT COLLECT
+Place & Date of Issue: SEMARANG, 17 november 2025

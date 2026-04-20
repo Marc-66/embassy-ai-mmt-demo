@@ -1,0 +1,29 @@
+Document Reference: SEFSRG25110136-A
+Date: 17-11-2025
+Internal Reference: SEFSRG25110136
+B/L Number: SRG/ANT/25110136
+Entity Details
+Sender (Freight Forwarder): KECE GROUP (PT. KEMASINDO CEPAT SEMARANG)
+Address: KOMPLEK PURI ANJASMORO BLOK C1/22, KAV 1
+Contact: TEL: 62-24-7618632; FAX: 62-24-7623474 / 7626239
+Recipient: EMBASSY FREIGHT SERVICES EUROPE N.V
+Address: BREDABAAN 842-844, B-2170 MERKSEM ANTWERP
+Contact: TEL: +32(0)3 646 04 47; FAX: +32(0)3 646 07 03
+Shipment Details
+Container: 1 x 40 HC (Numbers: MAGU5547295 / YMAQ213639)
+Route: SEMARANG, INDONESIA to ANTWERP, BELGIUM
+Vessel: MTT SANDAKAN 67W
+Memo: SELL: 2700; PS: -50
+Financial Breakdown
+Ocean Freight (2650): USD 2,650.00
+PPN (Tax): USD 0.00
+Total Amount Due: USD 2,650.00
+Amount in Words: TWO THOUSAND SIX HUNDRED FIFTY US DOLLAR
+Payment and Authorization
+Authorized Signatory: HANDY KORNIAWAN (DIRECTOR)
+Bank Account Details:
+Account Name: PT. KEMASINDO CEPAT SEMARANG
+Bank: UOB (USD)
+Account Number: 440-900-098-8
+Swift Code: BBIJIDJAXXX
+Branch: KCP SILIWANGI

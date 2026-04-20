@@ -1,0 +1,4 @@
+EMBASSY AI AUDIT: EFS2_scenario
+Status: Verified
+DCSA Compliant: YES
+Total Weight: 13838.0 KGS

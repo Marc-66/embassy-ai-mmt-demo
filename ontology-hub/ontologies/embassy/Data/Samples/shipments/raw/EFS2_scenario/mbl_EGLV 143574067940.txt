@@ -1,0 +1,31 @@
+Document Identification & Logistics
+Carrier / Vessel Provider: Evergreen Marine (Asia) Pte. Ltd. doing business as "Evergreen Line"
+B/L Number (Master): EGLV 143574067940
+Reference Order Number: 6277266
+Vessel / Voyage: EVER MEGA 0789-007W
+Port of Loading: NINGBO, CHINA
+Port of Discharge: ANTWERP, BELGIUM
+Place of Delivery / Final Destination: ANTWERP, BELGIUM
+Service Type: FCL/FCL
+Date of Issue: 2025-12-04
+Shipped on Board Date: 2025-12-04
+Place of Issue: NINGBO, CHINA
+Entity Details
+Shipper: NOBLELIFT INTELLIGENT EQUIPMENT CO., LTD.
+Address: NO.528 CHANGZHOU ROAD, TAIHU SUB-DISTRICT, CHANGXING, ZHEJIANG 313100 CHINA
+Consignee: EMBASSY FREIGHTSERVICES EUROPE N.V.
+Address: BREDABAAN 842 - 844 2170 MERKSEM (ANTWERP) BELGIUM
+Contact: PH +32 (0)3 646 04 47; FAX NO +32 (0)3 646 07 03; CTC: TIM BONTE
+Tax ID (EIN): BE0427 495 529
+Email: TIM@EMBASSY-FREIGHT.BE
+Notify Party: EMBASSY FREIGHTSERVICES EUROPE N.V. (Same address and contact details as Consignee)
+Cargo and Container Specifications
+Description of Goods: ELECTRIC PALLET TRUCK (CLASS 9 UN3171)
+Model: LHE130
+Numbers: 1-34
+Quantity: 34 PACKAGES
+Container Details: EMCU9948025 / 40H (HI-CUBE) / SEAL: EMCWTP9604
+Gross Weight: 13,838.000 KGS
+Measurement: 52.0200 CBM
+Freight Terms: OCEAN FREIGHT PREPAID
+Notes: Shipper's Load & Count; 1 x 40H; 34 Packages

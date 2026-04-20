@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Dossier xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+    <ProcessArea>
+        <action>INSERT_INBOUND</action>
+    </ProcessArea>
+    <DataArea>
+        <GeneralData>
+            <dossierId>EFS3_scenario</dossierId>
+            <operationalDate>2026-04-20</operationalDate>
+            <BillOfLading>
+                <number>Number</number>
+            </BillOfLading>
+            <GoodsValue>
+                <currency>EUR</currency>
+            </GoodsValue>
+            <extraRemarks>AI Audit: Verified. </extraRemarks>
+        </GeneralData>
+        <Goods>
+            <Good>
+                <lineId>1</lineId>
+                <packageType>PC</packageType>
+                <grossWeight>82400.0</grossWeight>
+                <netWeight>74160.0</netWeight>
+                <interfaceGoodId>Information</interfaceGoodId>
+            </Good>
+        </Goods>
+        <Customs>
+            <additionalScenario>30</additionalScenario>
+        </Customs>
+    </DataArea>
+</Dossier>

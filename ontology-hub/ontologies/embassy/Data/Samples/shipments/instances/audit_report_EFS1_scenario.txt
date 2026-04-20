@@ -1,0 +1,5 @@
+EMBASSY AI AUDIT: EFS1_scenario
+Status: Anomaly_Detected
+DCSA Compliant: YES
+Total Weight: 6763.9 KGS
+Alert: Weight Mismatch! Sum HBLs (6763.9) != Total (4763.9)
