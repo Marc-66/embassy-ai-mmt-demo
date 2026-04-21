@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<StreamImport>
+  <Header>
+    <MessageID>SHIP-2024-002</MessageID>
+    <Source>KairosAI</Source>
+  </Header>
+  <ShipmentDetails>
+    <Vessel>MAERSK JAKARTA</Vessel>
+    <Port>Rotterdam</Port>
+    <Weight unit="KGS">1500.0</Weight>
+    <Consignee>Stream Logistics BV</Consignee>
+  </ShipmentDetails>
+</StreamImport>

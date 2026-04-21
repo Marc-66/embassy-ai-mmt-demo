@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<StreamImport>
+  <Header>
+    <MessageID>SHIP-2024-003</MessageID>
+    <Source>KairosAI</Source>
+  </Header>
+  <ShipmentDetails>
+    <Vessel>EVER GIVEN</Vessel>
+    <Port>Zeebrugge</Port>
+    <Weight unit="KGS">2450.5</Weight>
+    <Consignee>Belgo Export</Consignee>
+    <Remarks>Customer requested delivery after 4:00 PM; Warehouse contact: Peter (+32 470 123 456).</Remarks>
+  </ShipmentDetails>
+</StreamImport>

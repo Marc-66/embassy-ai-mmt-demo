@@ -1,0 +1,28 @@
+@prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+@prefix mmt: <http://unece.org/data/mmt#> .
+@prefix kairos: <http://example.org/kairos/> .
+
+kairos:LogisticsMMTSchema a skos:ConceptScheme ;
+    skos:prefLabel 'Kairos Logistics MMT Schema' .
+
+kairos:Shipment_SHIP-2024-001 a mmt:Shipment ;
+    mmt:grossWeight '6763.9' ;
+    mmt:vesselName 'MSC OSCAR' ;
+    mmt:portOfDischarge 'Antwerp' ;
+    mmt:consignee 'Global Trade Corp' ;
+    mmt:status 'ANOMALY DETECTED' .
+
+kairos:Shipment_SHIP-2024-002 a mmt:Shipment ;
+    mmt:grossWeight '1500.0' ;
+    mmt:vesselName 'MAERSK JAKARTA' ;
+    mmt:portOfDischarge 'Rotterdam' ;
+    mmt:consignee 'Stream Logistics BV' ;
+    mmt:status 'VALIDATED' .
+
+kairos:Shipment_SHIP-2024-003 a mmt:Shipment ;
+    mmt:grossWeight '2450.5' ;
+    mmt:vesselName 'EVER GIVEN' ;
+    mmt:portOfDischarge 'Zeebrugge' ;
+    mmt:consignee 'Belgo Export' ;
+    mmt:status 'INFO ENRICHED' .
+

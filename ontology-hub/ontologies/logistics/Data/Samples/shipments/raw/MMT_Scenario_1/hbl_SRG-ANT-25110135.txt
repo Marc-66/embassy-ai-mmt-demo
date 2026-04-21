@@ -4,7 +4,7 @@ B/L Number: SRG/ANT/25110135
 S/O No. / Ref. No: SEFSRG25110135
 Shipper (Afzender): PT MANDIRI BANGUN NUSANTARA, Jalan Raya Tahunan-Batealit, Desa Bawu, RT. 26 RW. 05, Kecamatan Batealit, Kabupaten Jepara, Provinsi Jawa Tengah, Indonesië
 Consignee (Ontvanger): HOUSE AND GARDEN, Zuiderdijk 25, 9230 Wetteren, België
-Forwarding Agent (Expediteur): EMBASSY FREIGHT SERVICES EUROPE N.V, Bredabaan 842-844, B-2170 Merksem, Antwerpen
+Forwarding Agent (Expediteur): logistics FREIGHT SERVICES EUROPE N.V, Bredabaan 842-844, B-2170 Merksem, Antwerpen
 Place of Receipt & Loading: SEMARANG, INDONESIA
 Ocean Vessel & Voy No: MTT SANDAKAN 67W
 Port of Discharge: ANTWERP, BELGIUM

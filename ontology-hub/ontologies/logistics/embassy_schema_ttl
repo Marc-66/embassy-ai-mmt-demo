@@ -4,11 +4,11 @@
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 @prefix mmt: <http://unece.org/data/mmt#> .
 @prefix ils: <http://streamsoftware.com/ils#> .
-@prefix embassy: <http://example.org/embassy/> .
+@prefix logistics: <http://example.org/logistics/> .
 
 # ===== ONTOLOGY METADATA =====
-<http://example.org/embassy/schema> a owl:Ontology ;
-    rdfs:label "Embassy MMT & ILS Unified Ontology" ;
+<http://example.org/logistics/schema> a owl:Ontology ;
+    rdfs:label "logistics MMT & ILS Unified Ontology" ;
     rdfs:comment "Ontology mapped to UN/CEFACT MMT Reference Data Model and StreamSoftware ILS specifications." ;
     owl:versionInfo "2.0.0 (MMT Aligned)" .
 
@@ -70,7 +70,7 @@ ils:customsStatus a owl:DatatypeProperty ;
     rdfs:range xsd:string .
 
 ils:auditStatus a owl:DatatypeProperty ;
-    rdfs:label "Embassy Audit Status" ;
+    rdfs:label "logistics Audit Status" ;
     rdfs:comment "Internal AI check status: Verified or Anomaly_Detected" ;
     rdfs:domain mmt:MasterConsignment ;
     rdfs:range xsd:string .

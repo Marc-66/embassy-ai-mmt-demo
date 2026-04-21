@@ -13,12 +13,12 @@ Place of Issue: NINGBO, CHINA
 Entity Details
 Shipper: NOBLELIFT INTELLIGENT EQUIPMENT CO., LTD.
 Address: NO.528 CHANGZHOU ROAD, TAIHU SUB-DISTRICT, CHANGXING, ZHEJIANG 313100 CHINA
-Consignee: EMBASSY FREIGHTSERVICES EUROPE N.V.
+Consignee: logistics FREIGHTSERVICES EUROPE N.V.
 Address: BREDABAAN 842 - 844 2170 MERKSEM (ANTWERP) BELGIUM
 Contact: PH +32 (0)3 646 04 47; FAX NO +32 (0)3 646 07 03; CTC: TIM BONTE
 Tax ID (EIN): BE0427 495 529
-Email: TIM@EMBASSY-FREIGHT.BE
-Notify Party: EMBASSY FREIGHTSERVICES EUROPE N.V. (Same address and contact details as Consignee)
+Email: TIM@logistics-FREIGHT.BE
+Notify Party: logistics FREIGHTSERVICES EUROPE N.V. (Same address and contact details as Consignee)
 Cargo and Container Specifications
 Description of Goods: ELECTRIC PALLET TRUCK (CLASS 9 UN3171)
 Model: LHE130
