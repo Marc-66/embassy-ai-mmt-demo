@@ -1,13 +1,23 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<StreamImport>
+<StreamImport xmlns:mmt="http://unece.org/data/mmt">
   <Header>
-    <MessageID>SHIP-2024-002</MessageID>
-    <Source>KairosAI</Source>
+    <RefID>SHIP-2024-002</RefID>
   </Header>
-  <ShipmentDetails>
-    <Vessel>MAERSK JAKARTA</Vessel>
-    <Port>Rotterdam</Port>
-    <Weight unit="KGS">1500.0</Weight>
-    <Consignee>Stream Logistics BV</Consignee>
-  </ShipmentDetails>
+  <TransportDetails>
+    <VesselName>MAERSK JAKARTA</VesselName>
+    <VoyageNumber>MJ-202-W</VoyageNumber>
+    <POL>HONG KONG</POL>
+    <POD>ROTTERDAM</POD>
+  </TransportDetails>
+  <GoodsDetails>
+    <MBL>MBL-ROT-44556</MBL>
+    <HBL>HBL-HKG-990012</HBL>
+    <GrossWeight unit="KGS">1500.0</GrossWeight>
+    <Packaging qty="5">CRATES</Packaging>
+    <Consignee>STREAM LOGISTICS BV</Consignee>
+  </GoodsDetails>
+  <AuditTrail>
+    <Status>VALIDATED</Status>
+    <Recommendation>Automated push to StreamSoftware enabled.</Recommendation>
+  </AuditTrail>
 </StreamImport>

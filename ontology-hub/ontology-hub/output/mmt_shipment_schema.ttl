@@ -6,23 +6,52 @@ kairos:LogisticsMMTSchema a skos:ConceptScheme ;
     skos:prefLabel 'Kairos Logistics MMT Schema' .
 
 kairos:Shipment_SHIP-2024-001 a mmt:Shipment ;
-    mmt:grossWeight '6763.9' ;
+    mmt:id 'SHIP-2024-001' ;
+    mmt:grossWeight '6763.9 KGS' ;
     mmt:vesselName 'MSC OSCAR' ;
-    mmt:portOfDischarge 'Antwerp' ;
-    mmt:consignee 'Global Trade Corp' ;
+    mmt:voyageNumber 'V-2024-X' ;
+    mmt:masterBillOfLading 'MBL-ANT-99283' ;
+    mmt:houseBillOfLading 'HBL-SRG-251101' ;
+    mmt:portOfLoading 'SURIGAO' ;
+    mmt:portOfDischarge 'ANTWERP' ;
+    mmt:consignee 'GLOBAL TRADE CORP' ;
+    mmt:commodity 'ELECTRONICS' ;
+    mmt:package '12 PALLETS' ;
+    kairos:auditStatus 'ANOMALY DETECTED' ;
+    kairos:auditRecommendation 'Manual Review required.' ;
+    kairos:emailComment 'Check invoice versus packing list for discrepancies.' ;
     mmt:status 'ANOMALY DETECTED' .
 
 kairos:Shipment_SHIP-2024-002 a mmt:Shipment ;
-    mmt:grossWeight '1500.0' ;
+    mmt:id 'SHIP-2024-002' ;
+    mmt:grossWeight '1500.0 KGS' ;
     mmt:vesselName 'MAERSK JAKARTA' ;
-    mmt:portOfDischarge 'Rotterdam' ;
-    mmt:consignee 'Stream Logistics BV' ;
+    mmt:voyageNumber 'MJ-202-W' ;
+    mmt:masterBillOfLading 'MBL-ROT-44556' ;
+    mmt:houseBillOfLading 'HBL-HKG-990012' ;
+    mmt:portOfLoading 'HONG KONG' ;
+    mmt:portOfDischarge 'ROTTERDAM' ;
+    mmt:consignee 'STREAM LOGISTICS BV' ;
+    mmt:commodity 'SPARE PARTS' ;
+    mmt:package '5 CRATES' ;
+    kairos:auditStatus 'VALIDATED' ;
+    kairos:auditRecommendation 'Automated push to StreamSoftware enabled.' ;
     mmt:status 'VALIDATED' .
 
 kairos:Shipment_SHIP-2024-003 a mmt:Shipment ;
-    mmt:grossWeight '2450.5' ;
+    mmt:id 'SHIP-2024-003' ;
+    mmt:grossWeight '2450.5 KGS' ;
     mmt:vesselName 'EVER GIVEN' ;
-    mmt:portOfDischarge 'Zeebrugge' ;
-    mmt:consignee 'Belgo Export' ;
+    mmt:voyageNumber 'EG-882' ;
+    mmt:masterBillOfLading 'MBL-ZEE-11223' ;
+    mmt:houseBillOfLading 'HBL-KUL-529916' ;
+    mmt:portOfLoading 'PORT KLANG' ;
+    mmt:portOfDischarge 'ZEEBRUGGE' ;
+    mmt:consignee 'BELGO EXPORT' ;
+    mmt:commodity 'TEXTILES' ;
+    mmt:package '1 CONTAINER 40FT' ;
+    kairos:auditStatus 'INFO ENRICHED' ;
+    kairos:auditRecommendation 'Review comments below before finalizing.' ;
+    kairos:emailComment 'Customer requested delivery after 4:00 PM; Warehouse contact: Peter (+32 470 123 456).' ;
     mmt:status 'INFO ENRICHED' .
 

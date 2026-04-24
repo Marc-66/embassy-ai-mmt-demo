@@ -1,14 +1,24 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<StreamImport>
+<StreamImport xmlns:mmt="http://unece.org/data/mmt">
   <Header>
-    <MessageID>SHIP-2024-003</MessageID>
-    <Source>KairosAI</Source>
+    <RefID>SHIP-2024-003</RefID>
   </Header>
-  <ShipmentDetails>
-    <Vessel>EVER GIVEN</Vessel>
-    <Port>Zeebrugge</Port>
-    <Weight unit="KGS">2450.5</Weight>
-    <Consignee>Belgo Export</Consignee>
-    <Remarks>Customer requested delivery after 4:00 PM; Warehouse contact: Peter (+32 470 123 456).</Remarks>
-  </ShipmentDetails>
+  <TransportDetails>
+    <VesselName>EVER GIVEN</VesselName>
+    <VoyageNumber>EG-882</VoyageNumber>
+    <POL>PORT KLANG</POL>
+    <POD>ZEEBRUGGE</POD>
+  </TransportDetails>
+  <GoodsDetails>
+    <MBL>MBL-ZEE-11223</MBL>
+    <HBL>HBL-KUL-529916</HBL>
+    <GrossWeight unit="KGS">2450.5</GrossWeight>
+    <Packaging qty="1">CONTAINER 40FT</Packaging>
+    <Consignee>BELGO EXPORT</Consignee>
+  </GoodsDetails>
+  <AuditTrail>
+    <Status>INFO ENRICHED</Status>
+    <Recommendation>Review comments below before finalizing.</Recommendation>
+    <InternalRemarks>Customer requested delivery after 4:00 PM; Warehouse contact: Peter (+32 470 123 456).</InternalRemarks>
+  </AuditTrail>
 </StreamImport>

@@ -1,17 +1,13 @@
+KAIROS AI AUDIT: Weight Analysis
 ====================================================
-          KAIROS LOGISTICS AI AUDIT REPORT          
-====================================================
-
-SCENARIO: MMT_Scenario_1 (Weight Analysis)
-----------------------------------------------------
 STATUS: ANOMALY DETECTED
-MMT COMPLIANT: YES (Structure verified)
-SQL MATCH: Found existing dossier #MMT-992
+RECOMMENDATION: Manual Review required.
 
-DATA VERIFICATION:
-- Total Weight from HBLs: 6763.9 KGS
-- Total Weight from MBL/Mail: 4763.9 KGS
-ALERT: [!] Weight Mismatch! Difference of 2000.0 KGS detected.
+VERIFICATION:
+- HBL Weight: 6763.9 KGS
+- MBL/Mail: 4763.9 KGS
+ALERT: [!] Weight Mismatch! Diff: 2000.0 KGS.
 
-RECOMMENDED ACTION: Manual Review required before StreamSoftware push.
-----------------------------------------------------
+[COMMENT FROM EMAIL]:
+>>> Check invoice versus packing list for discrepancies.
+====================================================

@@ -10,7 +10,7 @@ def generate_logistics():
     for d in [output_dir, viewer_dir]:
         if not os.path.exists(d): os.makedirs(d)
 
-    # 1. UITGEBREIDE DATA (Klaar voor StreamSoftware & Ontologie)
+    # 1. UITGEBREIDE DATA VOOR ALLE 3 SCENARIO'S
     scenarios = {
         "MMT_Scenario_1": {
             "title": "Weight Analysis",
@@ -35,6 +35,29 @@ def generate_logistics():
             "action": "Manual Review required.",
             "comment": "Check invoice versus packing list for discrepancies."
         },
+        "MMT_Scenario_2": {
+            "title": "Standard Import Validation",
+            "id": "SHIP-2024-002",
+            "status": "VALIDATED",
+            "weight": "1500.0",
+            "mbl": "MBL-ROT-44556",
+            "hbl": "HBL-HKG-990012",
+            "vessel": "MAERSK JAKARTA",
+            "voyage": "MJ-202-W",
+            "port_load": "HONG KONG",
+            "port_discharge": "ROTTERDAM",
+            "consignee": "STREAM LOGISTICS BV",
+            "carrier": "MAERSK",
+            "commodity": "SPARE PARTS",
+            "package_type": "CRATES",
+            "package_qty": "5",
+            "compliance": "YES (Full alignment)",
+            "sql_match": "No duplicate found. Ready for creation.",
+            "verification": ["- Data consistent across all documents"],
+            "alert": "None. Data integrity verified.",
+            "action": "Automated push to StreamSoftware enabled.",
+            "comment": None
+        },
         "MMT_Scenario_3": {
             "title": "Data Enrichment",
             "id": "SHIP-2024-003",
@@ -55,12 +78,12 @@ def generate_logistics():
             "sql_match": "Found related booking #BK-8812",
             "verification": ["- BOL missing instructions", "- Email context extracted"],
             "alert": "None. Enrichment complete.",
-            "action": "Review comments below.",
+            "action": "Review comments below before finalizing.",
             "comment": "Customer requested delivery after 4:00 PM; Warehouse contact: Peter (+32 470 123 456)."
         }
     }
 
-    # 2. TTL GENERATIE (Nu met alle velden voor de viewer rechts)
+    # 2. TTL GENERATIE (Voor de Graph Viewer)
     ttl_content = "@prefix skos: <http://www.w3.org/2004/02/skos/core#> .\n@prefix mmt: <http://unece.org/data/mmt#> .\n@prefix kairos: <http://example.org/kairos/> .\n\nkairos:LogisticsMMTSchema a skos:ConceptScheme ;\n    skos:prefLabel 'Kairos Logistics MMT Schema' .\n\n"
     
     for name, data in scenarios.items():
@@ -86,24 +109,22 @@ def generate_logistics():
     for path in [os.path.join(output_dir, 'mmt_shipment_schema.ttl'), os.path.join(viewer_dir, 'mmt_shipment_schema.ttl')]:
         with open(path, 'w') as f: f.write(ttl_content)
 
-    # 3. UITGEBREIDE XML (StreamSoftware Export)
+    # 3. XML GENERATIE (Voor StreamSoftware)
     for name, data in scenarios.items():
         xml_path = os.path.join(output_dir, f"import_{name}.xml")
         with open(xml_path, 'w') as f:
             f.write('<?xml version="1.0" encoding="UTF-8"?>\n')
             f.write('<StreamImport xmlns:mmt="http://unece.org/data/mmt">\n')
-            f.write(f'  <Header>\n    <RefID>{data["id"]}</RefID>\n    <Timestamp>2024-04-21</Timestamp>\n  </Header>\n')
+            f.write(f'  <Header>\n    <RefID>{data["id"]}</RefID>\n  </Header>\n')
             f.write('  <TransportDetails>\n')
             f.write(f'    <VesselName>{data["vessel"]}</VesselName>\n')
             f.write(f'    <VoyageNumber>{data["voyage"]}</VoyageNumber>\n')
-            f.write(f'    <Carrier>{data["carrier"]}</Carrier>\n')
             f.write(f'    <POL>{data["port_load"]}</POL>\n')
             f.write(f'    <POD>{data["port_discharge"]}</POD>\n')
             f.write('  </TransportDetails>\n')
             f.write('  <GoodsDetails>\n')
             f.write(f'    <MBL>{data["mbl"]}</MBL>\n')
             f.write(f'    <HBL>{data["hbl"]}</HBL>\n')
-            f.write(f'    <Description>{data["commodity"]}</Description>\n')
             f.write(f'    <GrossWeight unit="KGS">{data["weight"]}</GrossWeight>\n')
             f.write(f'    <Packaging qty="{data["package_qty"]}">{data["package_type"]}</Packaging>\n')
             f.write(f'    <Consignee>{data["consignee"]}</Consignee>\n')
@@ -122,7 +143,8 @@ def generate_logistics():
             f.write(f"KAIROS AI AUDIT: {data['title']}\n====================================================\n")
             f.write(f"STATUS: {data['status']}\nRECOMMENDATION: {data['action']}\n\nVERIFICATION:\n")
             for line in data['verification']: f.write(f"{line}\n")
-            if data['comment']: f.write(f"\n[COMMENT]: {data['comment']}\n")
+            f.write(f"ALERT: {data['alert']}\n")
+            if data['comment']: f.write(f"\n[COMMENT FROM EMAIL]:\n>>> {data['comment']}\n")
             f.write("====================================================\n")
 
 if __name__ == "__main__":

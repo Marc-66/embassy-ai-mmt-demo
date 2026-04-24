@@ -1,13 +1,24 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<StreamImport>
+<StreamImport xmlns:mmt="http://unece.org/data/mmt">
   <Header>
-    <MessageID>SHIP-2024-001</MessageID>
-    <Source>KairosAI</Source>
+    <RefID>SHIP-2024-001</RefID>
   </Header>
-  <ShipmentDetails>
-    <Vessel>MSC OSCAR</Vessel>
-    <Port>Antwerp</Port>
-    <Weight unit="KGS">6763.9</Weight>
-    <Consignee>Global Trade Corp</Consignee>
-  </ShipmentDetails>
+  <TransportDetails>
+    <VesselName>MSC OSCAR</VesselName>
+    <VoyageNumber>V-2024-X</VoyageNumber>
+    <POL>SURIGAO</POL>
+    <POD>ANTWERP</POD>
+  </TransportDetails>
+  <GoodsDetails>
+    <MBL>MBL-ANT-99283</MBL>
+    <HBL>HBL-SRG-251101</HBL>
+    <GrossWeight unit="KGS">6763.9</GrossWeight>
+    <Packaging qty="12">PALLETS</Packaging>
+    <Consignee>GLOBAL TRADE CORP</Consignee>
+  </GoodsDetails>
+  <AuditTrail>
+    <Status>ANOMALY DETECTED</Status>
+    <Recommendation>Manual Review required.</Recommendation>
+    <InternalRemarks>Check invoice versus packing list for discrepancies.</InternalRemarks>
+  </AuditTrail>
 </StreamImport>
