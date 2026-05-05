@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ILSDossier>
+  <ProcessArea><action>M</action></ProcessArea>
+  <DataArea>
+    <DossierProcessInfo>
+      <status>ANOMALY DETECTED</status>
+      <audit_weight_hbl>6763.9</audit_weight_hbl>
+      <audit_weight_mbl>6800.0</audit_weight_mbl>
+      <remarks>Audit Result: FAIL - Needs Review: Yes</remarks>
+    </DossierProcessInfo>
+    <GeneralData>
+      <dossierId>SHIP-2024-001</dossierId>
+      <vesselName>MSC OSCAR</vesselName>
+      <commodity>ELECTRONICS</commodity>
+      <commodity_view>STATUS: ANOMALY DETECTED</commodity_view>
+      <package_view>ACTIE: M (Klik URL voor PDF)</package_view>
+    </GeneralData>
+    <AttachedDocuments>
+      <Document>
+        <Type>HBL</Type>
+        <Link>file:///c:/Users/mvanh/OneDrive/Desktop/Project/KAIROS/kairos-ontology-hub-main/ontology-hub/ILS_Storage/SHIP-2024-001_HBL.pdf</Link>
+      </Document>
+      <Document>
+        <Type>MBL</Type>
+        <Link>file:///c:/Users/mvanh/OneDrive/Desktop/Project/KAIROS/kairos-ontology-hub-main/ontology-hub/ILS_Storage/SHIP-2024-001_MBL.pdf</Link>
+      </Document>
+      <Document>
+        <Type>INV</Type>
+        <Link>file:///c:/Users/mvanh/OneDrive/Desktop/Project/KAIROS/kairos-ontology-hub-main/ontology-hub/ILS_Storage/SHIP-2024-001_INV.pdf</Link>
+      </Document>
+    </AttachedDocuments>
+  </DataArea>
+</ILSDossier>

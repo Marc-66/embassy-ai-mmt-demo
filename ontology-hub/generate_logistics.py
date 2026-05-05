@@ -1,151 +1,93 @@
-import os
+import lxml.etree as ET
+from datetime import datetime
+import psycopg2  # Of pyodbc voor SQL Server
 
-def generate_logistics():
-    print("--- Starting Kairos Logistics Data Orchestrator ---")
+# --- CONFIGURATIE ---
+DB_CONFIG = {
+    "dbname": "ils_database",
+    "user": "admin",
+    "password": "password",
+    "host": "localhost"
+}
+
+def check_existing_dossier(reference):
+    """
+    Controleert in de SQL database of de referentie (bijv. Bol.com order) al bestaat.
+    Geeft (ActionCode, DossierID) terug.
+    """
+    try:
+        conn = psycopg2.connect(**DB_CONFIG)
+        cur = conn.cursor()
+        
+        # We zoeken op de externe referentie in de ILS dossiers tabel
+        query = "SELECT dossier_id FROM dossiers WHERE external_reference = %s LIMIT 1;"
+        cur.execute(query, (reference,))
+        result = cur.fetchone()
+        
+        cur.close()
+        conn.close()
+        
+        if result:
+            return "M", result[0]  # M = Modify (Bestaat al)
+        else:
+            return "C", None       # C = Create (Nieuw dossier)
+            
+    except Exception as e:
+        print(f"Database error: {e}")
+        return "C", None  # Default naar Create bij fout, of stop het proces
+
+def generate_logistics_xml(output_file, data):
+    """
+    Genereert de XML voor ILS Dossiers conform Source 2.
+    """
+    # 1. Bepaal of het een nieuw dossier is of een update
+    action_code, internal_id = check_existing_dossier(data['order_ref'])
     
-    base_dir = os.path.dirname(os.path.abspath(__file__))
-    output_dir = os.path.join(base_dir, 'ontology-hub', 'output')
-    viewer_dir = os.path.join(base_dir, 'ontologies', 'logistics')
+    # 2. Bouw de XML Structuur
+    root = ET.Element("Dossiers")
+    dossier = ET.SubElement(root, "Dossier")
     
-    for d in [output_dir, viewer_dir]:
-        if not os.path.exists(d): os.makedirs(d)
-
-    # 1. UITGEBREIDE DATA VOOR ALLE 3 SCENARIO'S
-    scenarios = {
-        "MMT_Scenario_1": {
-            "title": "Weight Analysis",
-            "id": "SHIP-2024-001",
-            "status": "ANOMALY DETECTED",
-            "weight": "6763.9",
-            "mbl": "MBL-ANT-99283",
-            "hbl": "HBL-SRG-251101",
-            "vessel": "MSC OSCAR",
-            "voyage": "V-2024-X",
-            "port_load": "SURIGAO",
-            "port_discharge": "ANTWERP",
-            "consignee": "GLOBAL TRADE CORP",
-            "carrier": "MSC",
-            "commodity": "ELECTRONICS",
-            "package_type": "PALLETS",
-            "package_qty": "12",
-            "compliance": "YES (Structure verified)",
-            "sql_match": "Found existing dossier #MMT-992",
-            "verification": ["- HBL Weight: 6763.9 KGS", "- MBL/Mail: 4763.9 KGS"],
-            "alert": "[!] Weight Mismatch! Diff: 2000.0 KGS.",
-            "action": "Manual Review required.",
-            "comment": "Check invoice versus packing list for discrepancies."
-        },
-        "MMT_Scenario_2": {
-            "title": "Standard Import Validation",
-            "id": "SHIP-2024-002",
-            "status": "VALIDATED",
-            "weight": "1500.0",
-            "mbl": "MBL-ROT-44556",
-            "hbl": "HBL-HKG-990012",
-            "vessel": "MAERSK JAKARTA",
-            "voyage": "MJ-202-W",
-            "port_load": "HONG KONG",
-            "port_discharge": "ROTTERDAM",
-            "consignee": "STREAM LOGISTICS BV",
-            "carrier": "MAERSK",
-            "commodity": "SPARE PARTS",
-            "package_type": "CRATES",
-            "package_qty": "5",
-            "compliance": "YES (Full alignment)",
-            "sql_match": "No duplicate found. Ready for creation.",
-            "verification": ["- Data consistent across all documents"],
-            "alert": "None. Data integrity verified.",
-            "action": "Automated push to StreamSoftware enabled.",
-            "comment": None
-        },
-        "MMT_Scenario_3": {
-            "title": "Data Enrichment",
-            "id": "SHIP-2024-003",
-            "status": "INFO ENRICHED",
-            "weight": "2450.5",
-            "mbl": "MBL-ZEE-11223",
-            "hbl": "HBL-KUL-529916",
-            "vessel": "EVER GIVEN",
-            "voyage": "EG-882",
-            "port_load": "PORT KLANG",
-            "port_discharge": "ZEEBRUGGE",
-            "consignee": "BELGO EXPORT",
-            "carrier": "EVERGREEN",
-            "commodity": "TEXTILES",
-            "package_type": "CONTAINER 40FT",
-            "package_qty": "1",
-            "compliance": "YES",
-            "sql_match": "Found related booking #BK-8812",
-            "verification": ["- BOL missing instructions", "- Email context extracted"],
-            "alert": "None. Enrichment complete.",
-            "action": "Review comments below before finalizing.",
-            "comment": "Customer requested delivery after 4:00 PM; Warehouse contact: Peter (+32 470 123 456)."
-        }
-    }
-
-    # 2. TTL GENERATIE (Voor de Graph Viewer)
-    ttl_content = "@prefix skos: <http://www.w3.org/2004/02/skos/core#> .\n@prefix mmt: <http://unece.org/data/mmt#> .\n@prefix kairos: <http://example.org/kairos/> .\n\nkairos:LogisticsMMTSchema a skos:ConceptScheme ;\n    skos:prefLabel 'Kairos Logistics MMT Schema' .\n\n"
+    # ProcessArea (Verplicht: actie bepaalt importgedrag)[cite: 2]
+    process_area = ET.SubElement(dossier, "ProcessArea")
+    ET.SubElement(process_area, "action").text = action_code
+    if internal_id:
+        ET.SubElement(process_area, "internalId").text = str(internal_id)
     
-    for name, data in scenarios.items():
-        ship_uri = f"kairos:Shipment_{data['id']}"
-        ttl_content += f"{ship_uri} a mmt:Shipment ;\n"
-        ttl_content += f"    mmt:id '{data['id']}' ;\n"
-        ttl_content += f"    mmt:grossWeight '{data['weight']} KGS' ;\n"
-        ttl_content += f"    mmt:vesselName '{data['vessel']}' ;\n"
-        ttl_content += f"    mmt:voyageNumber '{data['voyage']}' ;\n"
-        ttl_content += f"    mmt:masterBillOfLading '{data['mbl']}' ;\n"
-        ttl_content += f"    mmt:houseBillOfLading '{data['hbl']}' ;\n"
-        ttl_content += f"    mmt:portOfLoading '{data['port_load']}' ;\n"
-        ttl_content += f"    mmt:portOfDischarge '{data['port_discharge']}' ;\n"
-        ttl_content += f"    mmt:consignee '{data['consignee']}' ;\n"
-        ttl_content += f"    mmt:commodity '{data['commodity']}' ;\n"
-        ttl_content += f"    mmt:package '{data['package_qty']} {data['package_type']}' ;\n"
-        ttl_content += f"    kairos:auditStatus '{data['status']}' ;\n"
-        ttl_content += f"    kairos:auditRecommendation '{data['action']}' ;\n"
-        if data['comment']:
-            ttl_content += f"    kairos:emailComment '{data['comment']}' ;\n"
-        ttl_content += f"    mmt:status '{data['status']}' .\n\n"
+    # DataArea
+    data_area = ET.SubElement(dossier, "DataArea")
+    
+    # GeneralData[cite: 2]
+    gen_data = ET.SubElement(data_area, "GeneralData")
+    ET.SubElement(gen_data, "dossierType").text = "IMPORT"
+    ET.SubElement(gen_data, "dossierDate").text = datetime.now().strftime("%Y-%m-%d")
+    ET.SubElement(gen_data, "externalReference").text = str(data['order_ref'])[:35]
+    
+    # Goods sectie (Producten toevoegen)[cite: 2]
+    goods = ET.SubElement(data_area, "Goods")
+    for i, item in enumerate(data['items'], 1):
+        goods_item = ET.SubElement(goods, "GoodsItem")
+        ET.SubElement(goods_item, "sequenceNumber").text = str(i)
+        ET.SubElement(goods_item, "productCode").text = str(item['sku'])[:35] # Max 35
+        ET.SubElement(goods_item, "quantity").text = str(item['qty'])
+        
+        # Fysieke details (Format Decimal 12,3)
+        if 'weight' in item:
+            ET.SubElement(goods_item, "grossWeight").text = f"{item['weight']:.3f}"
 
-    for path in [os.path.join(output_dir, 'mmt_shipment_schema.ttl'), os.path.join(viewer_dir, 'mmt_shipment_schema.ttl')]:
-        with open(path, 'w') as f: f.write(ttl_content)
+    # 3. Opslaan naar bestand
+    tree = ET.ElementTree(root)
+    tree.write(output_file, encoding="utf-8", xml_declaration=True, pretty_print=True)
+    print(f"XML gegenereerd: {output_file} met actie: {action_code}")
 
-    # 3. XML GENERATIE (Voor StreamSoftware)
-    for name, data in scenarios.items():
-        xml_path = os.path.join(output_dir, f"import_{name}.xml")
-        with open(xml_path, 'w') as f:
-            f.write('<?xml version="1.0" encoding="UTF-8"?>\n')
-            f.write('<StreamImport xmlns:mmt="http://unece.org/data/mmt">\n')
-            f.write(f'  <Header>\n    <RefID>{data["id"]}</RefID>\n  </Header>\n')
-            f.write('  <TransportDetails>\n')
-            f.write(f'    <VesselName>{data["vessel"]}</VesselName>\n')
-            f.write(f'    <VoyageNumber>{data["voyage"]}</VoyageNumber>\n')
-            f.write(f'    <POL>{data["port_load"]}</POL>\n')
-            f.write(f'    <POD>{data["port_discharge"]}</POD>\n')
-            f.write('  </TransportDetails>\n')
-            f.write('  <GoodsDetails>\n')
-            f.write(f'    <MBL>{data["mbl"]}</MBL>\n')
-            f.write(f'    <HBL>{data["hbl"]}</HBL>\n')
-            f.write(f'    <GrossWeight unit="KGS">{data["weight"]}</GrossWeight>\n')
-            f.write(f'    <Packaging qty="{data["package_qty"]}">{data["package_type"]}</Packaging>\n')
-            f.write(f'    <Consignee>{data["consignee"]}</Consignee>\n')
-            f.write('  </GoodsDetails>\n')
-            f.write('  <AuditTrail>\n')
-            f.write(f'    <Status>{data["status"]}</Status>\n')
-            f.write(f'    <Recommendation>{data["action"]}</Recommendation>\n')
-            if data['comment']: f.write(f'    <InternalRemarks>{data["comment"]}</InternalRemarks>\n')
-            f.write('  </AuditTrail>\n')
-            f.write('</StreamImport>')
-
-    # 4. AUDIT REPORTS
-    for name, data in scenarios.items():
-        audit_path = os.path.join(output_dir, f"audit_{name}.txt")
-        with open(audit_path, 'w') as f:
-            f.write(f"KAIROS AI AUDIT: {data['title']}\n====================================================\n")
-            f.write(f"STATUS: {data['status']}\nRECOMMENDATION: {data['action']}\n\nVERIFICATION:\n")
-            for line in data['verification']: f.write(f"{line}\n")
-            f.write(f"ALERT: {data['alert']}\n")
-            if data['comment']: f.write(f"\n[COMMENT FROM EMAIL]:\n>>> {data['comment']}\n")
-            f.write("====================================================\n")
-
+# --- VOORBEELD AANROEP ---
 if __name__ == "__main__":
-    generate_logistics()
+    # Deze data komt normaal uit je MMT-parser (mail/document)
+    order_data = {
+        "order_ref": "BOL-2024-9988",  # De unieke sleutel voor de SQL-check
+        "items": [
+            {"sku": "ART-001", "qty": 10, "weight": 5.5},
+            {"sku": "ART-002", "qty": 1, "weight": 0.750}
+        ]
+    }
+    
+    generate_logistics_xml("ils_import_order.xml", order_data)

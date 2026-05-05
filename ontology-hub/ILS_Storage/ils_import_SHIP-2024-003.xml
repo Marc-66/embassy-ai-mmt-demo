@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ILSDossier>
+  <ProcessArea><action>M</action></ProcessArea>
+  <DataArea>
+    <DossierProcessInfo>
+      <status>VALIDATED</status>
+      <audit_weight_hbl>2250.0</audit_weight_hbl>
+      <audit_weight_mbl>2250.0</audit_weight_mbl>
+      <remarks>Audit Result: PASS - Needs Review: No</remarks>
+    </DossierProcessInfo>
+    <GeneralData>
+      <dossierId>SHIP-2024-003</dossierId>
+      <vesselName>EVER GIVEN</vesselName>
+      <commodity>AUTO PARTS</commodity>
+      <commodity_view>STATUS: VALIDATED</commodity_view>
+      <package_view>ACTIE: M (Klik URL voor PDF)</package_view>
+    </GeneralData>
+    <AttachedDocuments>
+      <Document>
+        <Type>HBL</Type>
+        <Link>file:///c:/Users/mvanh/OneDrive/Desktop/Project/KAIROS/kairos-ontology-hub-main/ontology-hub/ILS_Storage/SHIP-2024-003_HBL.pdf</Link>
+      </Document>
+      <Document>
+        <Type>MBL</Type>
+        <Link>file:///c:/Users/mvanh/OneDrive/Desktop/Project/KAIROS/kairos-ontology-hub-main/ontology-hub/ILS_Storage/SHIP-2024-003_MBL.pdf</Link>
+      </Document>
+      <Document>
+        <Type>INV</Type>
+        <Link>file:///c:/Users/mvanh/OneDrive/Desktop/Project/KAIROS/kairos-ontology-hub-main/ontology-hub/ILS_Storage/SHIP-2024-003_INV.pdf</Link>
+      </Document>
+    </AttachedDocuments>
+  </DataArea>
+</ILSDossier>
